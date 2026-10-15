@@ -62,7 +62,7 @@ Serves five fixtures on 127.0.0.1, starts Chrome and checks the expected result 
 
 Canvas, WebGL and scroll-linked effects are not measured. Pages behind a login cannot be reached. A page that hides overflow with `overflow-x: hidden` passes, even if content ends up cut off.
 
-Layout Gate Pro adds five more defect checks (text under 14px, orphan heading lines, narrow column at 1440, tap targets under 24px, text over buttons and links) plus an HTML report: [FULL VERSION LINK].
+Layout Gate Pro adds five more defect checks (text under 14px, orphan heading lines, narrow column at 1440, tap targets under 24px, text over buttons and links) plus an HTML report: https://gate.sam-u.it.
 
 ## License
 

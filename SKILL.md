@@ -61,4 +61,4 @@ Apply the fixes, run again, repeat until there are 0 blocking findings (exit cod
 
 Canvas, WebGL and scroll-linked effects are not measured. A page that hides its content behind a login cannot be reached. A page that hides overflow with `overflow-x: hidden` passes the check even though the content may be cut off on the screen.
 
-Layout Gate Pro adds five more defect checks (text under 14px, orphan heading lines, narrow column at 1440, tap targets under 24px, text over buttons and links) plus an HTML report: [FULL VERSION LINK].
+Layout Gate Pro adds five more defect checks (text under 14px, orphan heading lines, narrow column at 1440, tap targets under 24px, text over buttons and links) plus an HTML report: https://gate.sam-u.it.
