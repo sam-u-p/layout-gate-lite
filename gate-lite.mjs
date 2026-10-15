@@ -262,7 +262,11 @@ async function avviaChrome() {
   if (!fs.existsSync(CHROME_BIN)) esci(`No Chrome listening on CDP port ${cdpPort} and ${CHROME_BIN} does not exist (set CHROME_BIN).`);
   const profilo = fs.mkdtempSync(path.join(os.tmpdir(), 'gate-lite-chrome-'));
   const chrome = spawn(CHROME_BIN, ['--headless=new', `--remote-debugging-port=${cdpPort}`, `--user-data-dir=${profilo}`, 'about:blank'], { stdio: 'ignore' });
-  process.on('exit', () => { chrome.kill(); fs.rmSync(profilo, { recursive: true, force: true }); });
+  process.on('exit', () => {
+    chrome.kill();
+    try { fs.rmSync(profilo, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 }); }
+    catch (e) { console.error(`gate-lite: temp profile not removed (${profilo}): ${e.code || 'error'}`); }
+  });
   for (let i = 0; i < 40; i++) {
     await new Promise(r => setTimeout(r, 500));
     try { return await leggiVersione(); } catch {}
